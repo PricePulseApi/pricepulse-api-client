@@ -32,7 +32,7 @@ print(res.read().decode("utf-8"))
 ```
 
 ### 💎 Pricing Plans on RapidAPI
-- **Basic:** Free ($0/mo) - 100 requests / month
+- **Basic (Evaluation):** Free ($0/mo) - 10 requests / month (Hard Limit)
 - **Pro (Recommended ⭐):** $39/mo - 15,000 requests / month
 - **Ultra:** $149/mo - 100,000 requests / month
 
