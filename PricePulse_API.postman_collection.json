@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "7f8b9e10-4a2c-4f81-9b1a-pricepulse2026",
+    "name": "PricePulse API - E-Commerce Price & Stock Intelligence",
+    "description": "High-speed real-time e-commerce pricing, stock status, discount %, and variant extraction API for Etsy, Shopify, and global storefronts.\n\nSubscribe on RapidAPI Hub: https://rapidapi.com/pricepulse-api-pricepulse-api-default/api/pricepulse-e-commerce-price-stock-intelligence-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Extract Single Product (Etsy / Shopify / Universal)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-rapidapi-key",
+            "value": "{{RAPIDAPI_KEY}}",
+            "type": "text"
+          },
+          {
+            "key": "x-rapidapi-host",
+            "value": "pricepulse-e-commerce-price-stock-intelligence-api.p.rapidapi.com",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://www.etsy.com/listing/1776489744/ultimate-annual-budget-spreadsheet\"\n}"
+        },
+        "url": {
+          "raw": "https://pricepulse-e-commerce-price-stock-intelligence-api.p.rapidapi.com/v1/extract",
+          "protocol": "https",
+          "host": [
+            "pricepulse-e-commerce-price-stock-intelligence-api",
+            "p",
+            "rapidapi",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "extract"
+          ]
+        },
+        "description": "Extracts real-time price, stock availability, original list price, discount %, and variant data in sub-350ms."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Compare Price & Trigger Alert (Diff Engine)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-rapidapi-key",
+            "value": "{{RAPIDAPI_KEY}}",
+            "type": "text"
+          },
+          {
+            "key": "x-rapidapi-host",
+            "value": "pricepulse-e-commerce-price-stock-intelligence-api.p.rapidapi.com",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://allbirds.com/products/mens-tree-runners\",\n  \"previous_price\": 120.00,\n  \"alert_threshold_percent\": 5.0\n}"
+        },
+        "url": {
+          "raw": "https://pricepulse-e-commerce-price-stock-intelligence-api.p.rapidapi.com/v1/monitor/diff",
+          "protocol": "https",
+          "host": [
+            "pricepulse-e-commerce-price-stock-intelligence-api",
+            "p",
+            "rapidapi",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "monitor",
+            "diff"
+          ]
+        },
+        "description": "Calculates exact dollar and percentage discounts against historical benchmark. Triggers alert_triggered: true if threshold is met or item is out of stock."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Batch Extract Multiple URLs (Parallel)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-rapidapi-key",
+            "value": "{{RAPIDAPI_KEY}}",
+            "type": "text"
+          },
+          {
+            "key": "x-rapidapi-host",
+            "value": "pricepulse-e-commerce-price-stock-intelligence-api.p.rapidapi.com",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"urls\": [\n    \"https://www.etsy.com/listing/1776489744/ultimate-annual-budget-spreadsheet\",\n    \"https://allbirds.com/products/mens-tree-runners\"\n  ]\n}"
+        },
+        "url": {
+          "raw": "https://pricepulse-e-commerce-price-stock-intelligence-api.p.rapidapi.com/v1/batch",
+          "protocol": "https",
+          "host": [
+            "pricepulse-e-commerce-price-stock-intelligence-api",
+            "p",
+            "rapidapi",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "batch"
+          ]
+        },
+        "description": "Scrapes up to 25 URLs simultaneously in parallel with sub-second execution."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "RAPIDAPI_KEY",
+      "value": "YOUR_RAPIDAPI_KEY_HERE",
+      "type": "string"
+    }
+  ]
+}
